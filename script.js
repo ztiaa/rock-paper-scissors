@@ -1,21 +1,44 @@
 function computerPlay() {
-  let computerChoice = Math.floor(Math.random() * 100) % 3;
-  switch(computerChoice) {
+  let computerSelection = Math.floor(Math.random() * 100) % 3;
+  switch(computerSelection) {
     case 0:
-      computerChoice = 'Rock';
+      computerSelection = 'rock';
       break;
     case 1:
-      computerChoice = 'Paper';
+      computerSelection = 'paper';
       break;
     case 2:
-      computerChoice = 'Scissors';
+      computerSelection = 'scissors';
       break;
   }
-  return computerChoice;
+  return computerSelection;
 }
 
-function playerSelection() {
+function playRound(playerSelection, computerSelection) {
+
+  if (playerSelection === 'rock'){
+    if (computerSelection === 'rock') return 'Draw!';
+    else if (computerSelection === 'paper') return 'You lose!';
+    else if (computerSelection === 'scissors') return 'You win!';
+  }
+  else if(playerSelection === 'paper'){
+    if (computerSelection === 'rock') return 'You win!';
+    else if (computerSelection === 'paper') return 'Draw!';
+    else if(computerSelection === 'scissors') return 'You lose!';
+  }
+  else if (playerSelection === 'scissors'){
+    if (computerSelection === 'rock') return 'You lose!';
+    else if (computerSelection === 'paper') return 'You win!';
+    else if (computerSelection === 'scissors') return 'Draw!';
+  }
   
 }
 
-console.log(computerPlay());
+function game() {
+  for (let i = 0; i<5; i++) {
+    let result = playRound(prompt('Type "ROCK", "PAPER" or "SCISSORS"').toLowerCase(),computerPlay());
+    console.log(result);
+  } 
+}
+
+game();
