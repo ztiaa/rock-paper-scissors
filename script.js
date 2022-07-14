@@ -34,15 +34,19 @@ function playRound(playerSelection, computerSelection) {
   
 }
 
-const computerSelection = computerPlay();
-console.log(computerSelection);
+let computerSelection = computerPlay();
+console.log(computerSelection + ' computer');
+const container = document.querySelector('.container');
 
-document.addEventListener('click', e => {
-
-  if(e.path.length === 7) {
-    playerSelection = e.path[1].id;
+container.addEventListener('click', e => {
+    playerSelection = (e.target.innerText || e.target.alt).toLowerCase();
+    console.log(playerSelection + ' selected');
     console.log(playRound(playerSelection,computerSelection));
-  }
-  else return;
+    computerSelection = computerPlay();
+    console.log(computerSelection + ' computer');
+
 });
 
+// container.addEventListener('click', e => {
+//   console.log((e.target.innerText || e.target.alt).toLowerCase())
+// });

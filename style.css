@@ -1,7 +1,14 @@
 * {
+  background: gray;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  border: 1px solid red;
+
+}
+
+body {
+  min-height: 100vh;
 }
 
 figure:hover {
@@ -23,7 +30,13 @@ figcaption {
 
 .container {
   display: flex;
-  height: 100vh;
-  justify-content: space-evenly;
-  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); 
+}
+
+footer {
+  position: sticky;
+  top: 100%;
 }
