@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+figure:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+img {
+  width: 350px;
+  height: 350px;
+}
+
+figcaption {
+  margin: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+}

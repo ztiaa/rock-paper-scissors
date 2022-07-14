@@ -34,12 +34,15 @@ function playRound(playerSelection, computerSelection) {
   
 }
 
-function game() {
-  for (let i = 0; i<5; i++) {
-    let result = playRound(prompt('Type "ROCK", "PAPER" or "SCISSORS"').toLowerCase(),computerPlay());
-    console.log(result);
-  } 
-}
+const computerSelection = computerPlay();
+console.log(computerSelection);
 
-game();
+document.addEventListener('click', e => {
+
+  if(e.path.length === 7) {
+    playerSelection = e.path[1].id;
+    console.log(playRound(playerSelection,computerSelection));
+  }
+  else return;
+});
 
