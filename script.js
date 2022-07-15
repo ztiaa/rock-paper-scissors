@@ -36,17 +36,36 @@ function playRound(playerSelection, computerSelection) {
 
 let computerSelection = computerPlay();
 console.log(computerSelection + ' computer');
+const pComputerSelection = document.createElement('p');
+const divSelections = document.querySelector('.selection-text');
 const container = document.querySelector('.container');
 
+pComputerSelection.innerText = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+divSelections.appendChild(pComputerSelection).setAttribute('dir', 'rtl');
+pComputerSelection.classList.add('spoiler');
+
 container.addEventListener('click', e => {
-    playerSelection = (e.target.innerText || e.target.alt).toLowerCase();
-    console.log(playerSelection + ' selected');
-    console.log(playRound(playerSelection,computerSelection));
+
+    const playerSelection = (e.target.innerText || e.target.alt).toLowerCase(); 
+    const pPlayerSelection = document.createElement('p');
+    const pResult = document.createElement('p');
+    const roundResult = playRound(playerSelection,computerSelection);
+    const divResult = document.querySelector('.round-result');
+
     computerSelection = computerPlay();
     console.log(computerSelection + ' computer');
+    pResult.innerText = roundResult;
+    pResult.classList.add('temp');
+    pPlayerSelection.innerText = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    pComputerSelection.innerText = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
+  
+    divResult.replaceChildren();
+    divResult.appendChild(pResult);
+    divSelections.replaceChildren();
+    divSelections.appendChild(pPlayerSelection);
+    divSelections.appendChild(pComputerSelection).classList.add('spoiler');
 
 });
 
-// container.addEventListener('click', e => {
-//   console.log((e.target.innerText || e.target.alt).toLowerCase())
-// });
+
