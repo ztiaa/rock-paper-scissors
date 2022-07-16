@@ -17,9 +17,10 @@ body {
 .round-result {
   width: 1062px;
   height: 58px;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   font-size: 3rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .container {
@@ -27,6 +28,7 @@ body {
 }
 
 .selection-title {
+  margin-top: 2rem;
   width: 1062px;
   display: flex;
   justify-content: space-between;
@@ -38,7 +40,7 @@ body {
   width: 1062px;
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 2rem;
 }
 
